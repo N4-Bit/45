@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KI Signal Hub</title>
+  <link rel="stylesheet" href="tailwind.css">
+  <script src="icons.js"></script>
+  <script src="db.js"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-black text-zinc-400 font-sans min-h-screen">
+  <div class="animated-bg"></div>
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand"><span class="nav-logo">KI</span><span>SIGNAL<em>HUB</em></span></a>
+      <div class="nav-actions">
+        <div class="nav-inline-links">
+          <a href="index.html" class="nav-inline-link active"><i data-lucide="home"></i><span>Dashboard</span></a>
+          <a href="profile.html" class="nav-inline-link"><i data-lucide="user"></i><span>Profil</span></a>
+          <a href="wallet-settings.html" class="nav-inline-link"><i data-lucide="credit-card"></i><span>Wallet</span></a>
+          <a href="pricing.html" class="nav-inline-link"><i data-lucide="tag"></i><span>Pricing</span></a>
+          <a href="faq.html" class="nav-inline-link"><i data-lucide="help-circle"></i><span>FAQ</span></a>
+          <a href="contact.html" class="nav-inline-link"><i data-lucide="mail"></i><span>Kontakt</span></a>
+          <a href="settings.html" class="nav-inline-link"><i data-lucide="settings"></i><span>Einstellungen</span></a>
+        </div>
+        <span id="nav-auth"></span>
+      </div>
+    </div>
+  </nav>
+  <main class="max-w-6xl mx-auto px-4 py-16 relative z-10">
+    <!-- HERO -->
+    <section class="text-center mb-24">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-bold uppercase tracking-widest mb-6">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+          <span class="relative inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>
+        </span>
+        Live Market Analysis
+      </div>
+      <h1 class="text-4xl md:text-7xl font-black text-white mb-6 tracking-tight leading-tight">Predict Markets with <br><span class="text-emerald-400">AI Precision</span></h1>
+      <p class="text-zinc-500 max-w-2xl mx-auto mb-10 text-base md:text-lg font-light">Neurale Netze analysieren Orderflow, Chartmuster und News-Sentiment in Echtzeit – und liefern dir LONG/SHORT-Signale mit Konfidenz-Level. Teste die Analyse direkt hier, ohne Anmeldung.</p>
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <a href="gast-dashboard.html" class="glow-button py-4 px-8 rounded-2xl font-bold inline-block">Gast-Showcase ansehen →</a>
+        <a href="register.html" class="btn-glass py-4 px-8 rounded-2xl font-bold inline-block">Kostenlos registrieren</a>
+      </div>
+    </section>
+
+    <!-- DEMO-ANALYSE (Gast-Vorschau) -->
+    <section class="max-w-3xl mx-auto mb-32">
+      <div class="text-center mb-8">
+        <h2 class="text-2xl md:text-3xl font-black text-white tracking-tight">Live-Vorschau: <span class="text-emerald-400">KI-Analyse</span></h2>
+        <p class="text-zinc-500 text-sm mt-2">Starte eine Beispiel-Analyse – so sieht dein Dashboard täglich aus.</p>
+      </div>
+      <div class="text-center mb-6">
+        <button id="btn-analyze" class="glow-button py-4 px-8 rounded-2xl font-bold inline-flex items-center justify-center gap-3">
+          <span id="btn-text">KI-ANALYSE STARTEN</span>
+          <span id="loader" class="hidden">⏳ Analysiere…</span>
+        </button>
+      </div>
+      <div id="signal-card" class="hidden max-w-md mx-auto transform transition-all scale-95 opacity-0 duration-500">
+        <div class="glass-card border-2 border-emerald-500/30 rounded-3xl p-8 text-center relative overflow-hidden">
+          <div id="signal-glow" class="absolute top-0 left-0 w-full h-1 bg-emerald-500 transition-colors duration-500"></div>
+          <p class="text-zinc-500 uppercase tracking-widest text-xs font-bold mb-4">Market Signal Detected</p>
+          <div id="signal-action" class="text-5xl font-black mb-6 tracking-tighter">LONG</div>
+          <div class="grid grid-cols-2 gap-4 mb-6">
+            <div class="bg-black/40 p-4 rounded-2xl border border-zinc-800">
+              <p class="text-zinc-500 text-xs uppercase font-bold mb-1">Asset</p>
+              <p id="signal-asset" class="text-white text-lg font-bold">BTC/USD</p>
+            </div>
+            <div class="bg-black/40 p-4 rounded-2xl border border-zinc-800">
+              <p class="text-zinc-500 text-xs uppercase font-bold mb-1">Confidence</p>
+              <p id="signal-confidence" class="text-emerald-400 text-lg font-bold">87%</p>
+            </div>
+          </div>
+          <div class="bg-black/40 p-4 rounded-2xl border border-zinc-800">
+            <p class="text-zinc-500 text-xs uppercase font-bold mb-1">Duration</p>
+            <p id="signal-duration" class="text-white text-lg font-bold">24h</p>
+          </div>
+        </div>
+        <div class="chart-wrap mt-4">
+          <div class="h-40 bg-black/40 rounded-2xl border border-zinc-800 p-3">
+            <canvas id="signal-chart"></canvas>
+          </div>
+        </div>
+        <p id="signal-source" class="text-xs text-zinc-500 mt-4">Datenquelle wird ermittelt …</p>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="mb-32">
+      <div class="text-center mb-12">
+        <h2 class="text-2xl md:text-3xl font-black text-white tracking-tight">Warum <span class="text-emerald-400">Signal Hub?</span></h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="glass-card p-8 rounded-3xl">
+          <div class="w-12 h-12 bg-emerald-500/10 border border-emerald-500/20 rounded-2xl flex items-center justify-center mb-4"><i data-lucide="brain" class="w-6 h-6 text-emerald-400"></i></div>
+          <h3 class="text-white font-bold text-lg mb-2">Echte KI-Signale</h3>
+          <p class="text-zinc-500 text-sm leading-relaxed">LONG/SHORT-Signale mit Konfidenz-Level und Laufzeit – berechnet aus Live-Kursdaten von CoinGecko, Binance und Yahoo Finance.</p>
+        </div>
+        <div class="glass-card p-8 rounded-3xl">
+          <div class="w-12 h-12 bg-emerald-500/10 border border-emerald-500/20 rounded-2xl flex items-center justify-center mb-4"><i data-lucide="refresh-cw" class="w-6 h-6 text-emerald-400"></i></div>
+          <h3 class="text-white font-bold text-lg mb-2">Auto-Invest</h3>
+          <p class="text-zinc-500 text-sm leading-relaxed">Signale automatisch über deine verbundenen Broker handeln lassen – mit individuellem Budget pro Anbieter.</p>
+        </div>
+        <div class="glass-card p-8 rounded-3xl">
+          <div class="w-12 h-12 bg-emerald-500/10 border border-emerald-500/20 rounded-2xl flex items-center justify-center mb-4"><i data-lucide="shield-check" class="w-6 h-6 text-emerald-400"></i></div>
+          <h3 class="text-white font-bold text-lg mb-2">Sicher verbunden</h3>
+          <p class="text-zinc-500 text-sm leading-relaxed">API-Keys werden AES-256 verschlüsselt gespeichert. Bis zu 3 Anbieter gleichzeitig – Binance, Coinbase, Kraken und mehr.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABLAUF -->
+    <section class="mb-32">
+      <div class="text-center mb-12">
+        <h2 class="text-2xl md:text-3xl font-black text-white tracking-tight">In 3 Schritten <span class="text-emerald-400">starten</span></h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="glass-card p-8 rounded-3xl text-center">
+          <p class="text-4xl font-black text-emerald-400 mb-4">1</p>
+          <h3 class="text-white font-bold mb-2">Konto erstellen</h3>
+          <p class="text-zinc-500 text-sm">Kostenlos registrieren – kein Vertragszwang, keine versteckten Kosten.</p>
+        </div>
+        <div class="glass-card p-8 rounded-3xl text-center">
+          <p class="text-4xl font-black text-emerald-400 mb-4">2</p>
+          <h3 class="text-white font-bold mb-2">Wallet verbinden</h3>
+          <p class="text-zinc-500 text-sm">Bis zu 3 Broker per API-Key verbinden und Budgets festlegen.</p>
+        </div>
+        <div class="glass-card p-8 rounded-3xl text-center">
+          <p class="text-4xl font-black text-emerald-400 mb-4">3</p>
+          <h3 class="text-white font-bold mb-2">Signale empfangen</h3>
+          <p class="text-zinc-500 text-sm">KI-Analyse starten und Signale mit Konfidenz-Level erhalten – optional per Auto-Invest.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PREIS-TEASER -->
+    <section class="mb-32">
+      <div class="text-center mb-12">
+        <h2 class="text-2xl md:text-3xl font-black text-white tracking-tight">Transparente <span class="text-emerald-400">Preise</span></h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div class="glass-card p-8 rounded-3xl">
+          <h3 class="text-white font-bold text-xl mb-2">Basic</h3>
+          <p class="text-4xl font-black text-white mb-4">0&nbsp;€</p>
+          <ul class="text-sm text-zinc-400 space-y-2 mb-6">
+            <li>✓ 3 Signale pro Tag</li>
+            <li>✓ Basis-Analyse</li>
+            <li class="text-zinc-600">✗ Auto-Invest</li>
+          </ul>
+          <a href="register.html" class="btn-glass py-3 rounded-xl font-bold block text-center">Kostenlos starten</a>
+        </div>
+        <div class="glass-card p-8 rounded-3xl border-2 border-emerald-500 relative transform scale-105 shadow-[0_0_30px_rgba(16,185,129,0.2)]">
+          <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-emerald-500 text-black text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest">Beliebteste Wahl</div>
+          <h3 class="text-white font-bold text-xl mb-2">Pro</h3>
+          <p class="text-4xl font-black text-white mb-4">99&nbsp;€</p>
+          <ul class="text-sm text-zinc-400 space-y-2 mb-6">
+            <li>✓ Unbegrenzte Signale</li>
+            <li>✓ Auto-Invest Zugang</li>
+            <li>✓ Priority Support</li>
+          </ul>
+          <a href="pricing.html" class="glow-button py-3 rounded-xl font-bold block text-center">Jetzt upgraden</a>
+        </div>
+        <div class="glass-card p-8 rounded-3xl">
+          <h3 class="text-white font-bold text-xl mb-2">Elite</h3>
+          <p class="text-4xl font-black text-white mb-4">249&nbsp;€</p>
+          <ul class="text-sm text-zinc-400 space-y-2 mb-6">
+            <li>✓ Alles aus Pro</li>
+            <li>✓ Custom AI Modelle</li>
+            <li>✓ API Enterprise Zugang</li>
+          </ul>
+          <a href="pricing.html" class="btn-glass py-3 rounded-xl font-bold block text-center">Alle Details</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ / KONTAKT CTA -->
+    <section class="text-center glass-card p-10 rounded-3xl max-w-3xl mx-auto">
+      <h2 class="text-2xl font-black text-white mb-4 tracking-tight">Bereit für präzisere Trades?</h2>
+      <p class="text-zinc-500 mb-8">Häufige Fragen beantwortet unsere FAQ – oder kontaktiere unser Team direkt.</p>
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <a href="gast-dashboard.html" class="glow-button py-3 px-8 rounded-xl font-bold">Showcase ansehen</a>
+        <a href="faq.html" class="btn-glass py-3 px-8 rounded-xl font-bold">FAQ lesen</a>
+        <a href="contact.html" class="btn-glass py-3 px-8 rounded-xl font-bold">Kontakt</a>
+      </div>
+    </section>
+  </main>
+  <script src="market-data.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="app.js"></script>
+  <script src="nav.js"></script>
+  <script src="support-chat.js"></script>
+  <script>if (typeof lucide !== 'undefined') lucide.createIcons();</script>
+</body>
+</html>

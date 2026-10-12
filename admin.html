@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel - KI Signal Hub</title>
+  <link rel="stylesheet" href="tailwind.css">
+  <script src="icons.js"></script>
+  <script src="db.js"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-black text-zinc-400 font-sans min-h-screen">
+  <div class="animated-bg"></div>
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand"><span class="nav-logo">KI</span><span>SIGNAL<em>HUB</em></span></a>
+      <div class="nav-actions">
+        <span id="nav-auth"></span>
+      </div>
+    </div>
+    <div id="nav-dropdown" class="nav-dropdown" hidden>
+      <div class="nav-grid">
+        <a href="index.html" class="nav-link"><i data-lucide="home"></i><span>Dashboard</span></a>
+        <a href="profile.html" class="nav-link"><i data-lucide="user"></i><span>Profil</span></a>
+        <a href="wallet-settings.html" class="nav-link"><i data-lucide="credit-card"></i><span>Wallet</span></a>
+        <a href="pricing.html" class="nav-link"><i data-lucide="tag"></i><span>Pricing</span></a>
+        <a href="faq.html" class="nav-link"><i data-lucide="help-circle"></i><span>FAQ</span></a>
+        <a href="contact.html" class="nav-link"><i data-lucide="mail"></i><span>Kontakt</span></a>
+        <a href="security.html" class="nav-link"><i data-lucide="shield-check"></i><span>Sicherheit</span></a>
+        <a href="settings.html" class="nav-link"><i data-lucide="settings"></i><span>Einstellungen</span></a>
+      </div>
+    </div>
+  </nav>
+  <main class="max-w-5xl mx-auto px-4 py-16 relative z-10">
+    <!-- Guard: nur für Admins sichtbar -->
+    <div id="admin-guard" class="hidden">
+      <div class="glass-card p-10 rounded-3xl text-center">
+        <i data-lucide="lock" class="w-10 h-10 text-red-400 mx-auto mb-4"></i>
+        <h1 class="text-2xl font-bold text-white mb-2">Zugriff verweigert</h1>
+        <p class="text-zinc-500 mb-8">Dieser Bereich ist nur für Administratoren zugänglich.</p>
+        <a href="login.html" class="glow-button py-3 px-8 rounded-xl font-bold inline-block">Zum Login</a>
+      </div>
+    </div>
+
+    <div id="admin-panel">
+      <div class="text-center mb-12">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-xs font-bold uppercase tracking-widest mb-6 admin-chip">Administrator</div>
+        <h1 class="text-4xl md:text-5xl font-black text-white mb-4 tracking-tight">Admin <span class="text-emerald-500">Panel</span></h1>
+        <p class="text-zinc-500">Key-Management für Pro- und Elite-Funktionen.</p>
+      </div>
+
+      <!-- Statistik -->
+      <div class="grid grid-cols-3 gap-4 mb-8">
+        <div class="glass-card p-6 rounded-3xl text-center">
+          <p class="text-3xl font-black text-white mb-1" id="stat-total">0</p>
+          <p class="text-xs uppercase font-bold text-zinc-500">Keys Gesamt</p>
+        </div>
+        <div class="glass-card p-6 rounded-3xl text-center">
+          <p class="text-3xl font-black text-emerald-400 mb-1" id="stat-free">0</p>
+          <p class="text-xs uppercase font-bold text-zinc-500">Offen</p>
+        </div>
+        <div class="glass-card p-6 rounded-3xl text-center">
+          <p class="text-3xl font-black text-zinc-500 mb-1" id="stat-used">0</p>
+          <p class="text-xs uppercase font-bold text-zinc-500">Eingelöst</p>
+        </div>
+      </div>
+
+      <!-- Key Generator -->
+      <div class="glass-card p-8 rounded-3xl mb-8">
+        <h2 class="text-white font-bold text-xl mb-2 flex items-center gap-2"><i data-lucide="key" class="w-5 h-5 text-emerald-400"></i> Key Generator</h2>
+        <p class="text-zinc-500 text-sm mb-6">Tier wählen und einen neuen Aktivierungskey generieren. Der Key wird beim Einlösen auf der Pricing-Seite aktiviert.</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+          <div class="tier-card glass-card p-6 rounded-3xl selected-tier cursor-pointer" data-tier="Pro">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-white font-bold text-lg">Pro</h3>
+              <span class="plan-badge-pro">99 €/Monat</span>
+            </div>
+            <ul class="text-sm space-y-2 text-zinc-400">
+              <li>✓ Unbegrenzte Signale</li>
+              <li>✓ Advanced AI Analytics</li>
+              <li>✓ Auto-Invest Zugang</li>
+              <li>✓ 24/7 Priority Support</li>
+            </ul>
+          </div>
+          <div class="tier-card tier-card-elite cursor-pointer glass-card p-6 rounded-3xl" data-tier="Elite">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-white font-bold text-lg">Elite</h3>
+              <span class="plan-badge-elite">249 €/Monat</span>
+            </div>
+            <ul class="text-sm space-y-2 text-zinc-400">
+              <li>✓ Alles aus Pro</li>
+              <li>✓ Custom AI Modelle</li>
+              <li>✓ Personal Portfolio Manager</li>
+              <li>✓ API Enterprise Zugang</li>
+            </ul>
+          </div>
+        </div>
+        <div class="flex items-end gap-4 flex-wrap">
+          <div>
+            <label class="text-xs uppercase font-bold text-zinc-500 block mb-1">Dauer (Tage)</label>
+            <input type="number" id="key-days" min="1" value="30" class="w-32 bg-black/40 border border-zinc-800 rounded-xl px-4 py-3 text-white outline-none focus:border-emerald-500/50 transition-colors">
+          </div>
+          <button id="btn-gen-key" class="glow-button py-3 px-8 rounded-xl font-bold">Key generieren (<span id="gen-tier-label">Pro</span>)</button>
+          <div id="key-result" class="hidden items-center gap-3 bg-black/40 border border-emerald-500/20 rounded-xl px-4 py-2 flex-1 min-w-fit">
+            <span id="generated-key" class="font-mono text-white text-sm">—</span>
+            <button id="btn-copy-generated" class="btn-glass px-3 py-1 rounded-lg text-xs font-bold shrink-0">Kopieren</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Key Liste -->
+      <div class="glass-card rounded-3xl overflow-hidden">
+        <div class="p-6 border-b border-zinc-800">
+          <h2 class="text-white font-bold flex items-center gap-2"><i data-lucide="key" class="w-5 h-5 text-emerald-400"></i> Generierte Keys</h2>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left">
+            <thead class="bg-black/50 text-zinc-500 text-xs uppercase font-bold">
+              <tr><th class="px-6 py-4">Key</th><th class="px-6 py-4">Plan</th><th class="px-6 py-4">Status</th><th class="px-6 py-4">Haltbarkeit</th><th class="px-6 py-4">Erstellt</th><th class="px-6 py-4 text-right">Aktion</th></tr>
+            </thead>
+            <tbody id="keys-body" class="divide-y divide-zinc-800"></tbody>
+            <!-- Haltbarkeit: Gesamt-Dauer + Restlaufzeit werden in admin.js gerendert -->
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="app.js"></script>
+  <script src="admin.js"></script>
+  <script src="nav.js"></script>
+  <script src="support-chat.js"></script>
+  <script>if (typeof lucide !== 'undefined') lucide.createIcons();</script>
+  <script src="i18n.js"></script>
+</body>
+</html>

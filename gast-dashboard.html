@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gast-Showcase - KI Signal Hub</title>
+  <link rel="stylesheet" href="tailwind.css">
+  <script src="icons.js"></script>
+  <script src="db.js"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-black text-zinc-400 font-sans min-h-screen">
+  <div class="animated-bg"></div>
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand"><span class="nav-logo">KI</span><span>SIGNAL<em>HUB</em></span></a>
+      <div class="nav-actions">
+        <span id="nav-auth"></span>
+      </div>
+    </div>
+  </nav>
+  <main class="max-w-6xl mx-auto px-4 py-16 relative z-10">
+    <div class="glass-card p-4 rounded-2xl mb-10 flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <p class="text-sm text-zinc-300 flex items-start gap-2">
+        <i data-lucide="activity" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+        <span><strong class="text-white">Gast-Showcase:</strong> Alle Daten auf dieser Seite sind Demo-Daten – dein echtes Dashboard mit Live-Signalen siehst du nach der Anmeldung.</span>
+      </p>
+      <div class="flex gap-3 shrink-0">
+        <a href="login.html" class="btn-glass px-4 py-2 rounded-xl text-xs font-bold">Anmelden</a>
+        <a href="register.html" class="glow-button px-4 py-2 rounded-xl text-xs font-bold">Kostenlos registrieren</a>
+      </div>
+    </div>
+
+    <section class="text-center mb-16">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-bold uppercase tracking-widest mb-6">Vorschau · Demo-Daten</div>
+      <h1 class="text-4xl md:text-6xl font-black text-white mb-6 tracking-tight">So sieht dein <span class="text-emerald-400">Dashboard</span> aus</h1>
+      <p class="text-zinc-500 max-w-2xl mx-auto text-base md:text-lg font-light">Live-Marktsignale, Trade-Historie und Auto-Invest – hier siehst du eine Demo, wie der KI Signal Hub nach der Anmeldung funktioniert.</p>
+    </section>
+
+    <div class="max-w-md mx-auto mb-16">
+      <div class="glass-card border-2 border-emerald-500/30 rounded-3xl p-8 text-center relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-1 bg-emerald-500"></div>
+        <p class="text-zinc-500 uppercase tracking-widest text-xs font-bold mb-4">Market Signal Detected · Demo</p>
+        <div class="text-5xl md:text-6xl font-black mb-6 tracking-tighter signal-long">LONG</div>
+        <div class="grid grid-cols-2 gap-4 mb-6">
+          <div class="bg-black/40 p-4 rounded-2xl border border-zinc-800">
+            <p class="text-zinc-500 text-xs uppercase font-bold mb-1">Asset</p>
+            <p class="text-white text-lg font-bold">BTC/USD</p>
+          </div>
+          <div class="bg-black/40 p-4 rounded-2xl border border-zinc-800">
+            <p class="text-zinc-500 text-xs uppercase font-bold mb-1">Confidence</p>
+            <p class="text-emerald-400 text-lg font-bold">87,4%</p>
+          </div>
+        </div>
+        <div class="bg-black/40 p-4 rounded-2xl border border-zinc-800">
+          <p class="text-zinc-500 text-xs uppercase font-bold mb-1">Duration</p>
+          <p class="text-white text-lg font-bold">24h</p>
+        </div>
+      </div>
+      <p class="text-xs text-zinc-500 mt-4 text-center">Im echten Dashboard werden Signale mit Live-Kursdaten (CoinGecko, Binance, Yahoo Finance) erzeugt.</p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+      <div class="lg:col-span-1">
+        <div class="glass-card p-6 md:p-8 rounded-3xl space-y-6">
+          <h2 class="text-white font-bold flex items-center gap-2 flex-wrap"><i data-lucide="wallet" class="w-5 h-5 text-emerald-400"></i> Verbundene Wallets <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-zinc-800 border border-zinc-700 text-zinc-400">DEMO</span></h2>
+          <div class="space-y-3">
+            <div class="p-4 bg-black/40 rounded-2xl border border-zinc-800">
+              <div class="flex items-center justify-between mb-2">
+                <p class="text-white font-bold">Binance</p>
+                <span class="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 text-[10px] font-bold border border-emerald-500/20">VERBUNDEN</span>
+              </div>
+              <p class="text-xs text-zinc-500">KI-Handelsbudget: <span class="text-white font-bold">$2.500</span></p>
+            </div>
+            <div class="p-4 bg-black/40 rounded-2xl border border-zinc-800">
+              <div class="flex items-center justify-between mb-2">
+                <p class="text-white font-bold">Kraken</p>
+                <span class="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 text-[10px] font-bold border border-emerald-500/20">VERBUNDEN</span>
+              </div>
+              <p class="text-xs text-zinc-500">KI-Handelsbudget: <span class="text-white font-bold">$1.200</span></p>
+            </div>
+          </div>
+          <div class="p-4 bg-black/40 rounded-2xl border border-zinc-800 flex items-center justify-between gap-3">
+            <div>
+              <p class="text-white font-bold text-sm">Auto-Invest</p>
+              <p class="text-xs text-zinc-500">Pro/Elite-Feature</p>
+            </div>
+            <i data-lucide="lock" class="w-4 h-4 text-emerald-400"></i>
+          </div>
+        </div>
+      </div>
+      <div class="lg:col-span-2">
+        <div class="glass-card rounded-3xl overflow-hidden">
+          <div class="p-6 border-b border-zinc-800 flex justify-between items-center flex-wrap gap-2">
+            <h2 class="text-white font-bold flex items-center gap-2"><i data-lucide="activity" class="w-5 h-5 text-emerald-400"></i> Trade History</h2>
+            <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-zinc-800 border border-zinc-700 text-zinc-400">DEMO</span>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left">
+              <thead class="bg-black/50 text-zinc-500 text-xs uppercase font-bold">
+                <tr><th class="px-6 py-4">Asset</th><th class="px-6 py-4">Type</th><th class="px-6 py-4">Result</th><th class="px-6 py-4 text-right">Profit/Loss</th></tr>
+              </thead>
+              <tbody class="divide-y divide-zinc-800">
+                <tr class="hover:bg-zinc-800/50 transition-colors"><td class="px-6 py-4 text-white font-medium">BTC/USD</td><td class="px-6 py-4 text-zinc-400">LONG</td><td class="px-6 py-4"><span class="px-2 py-1 rounded-full text-xs font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Win</span></td><td class="px-6 py-4 text-right font-mono text-emerald-400">+4,20%</td></tr>
+                <tr class="hover:bg-zinc-800/50 transition-colors"><td class="px-6 py-4 text-white font-medium">ETH/USD</td><td class="px-6 py-4 text-zinc-400">SHORT</td><td class="px-6 py-4"><span class="px-2 py-1 rounded-full text-xs font-bold bg-red-500/10 text-red-400 border border-red-500/20">Loss</span></td><td class="px-6 py-4 text-right font-mono text-red-400">-1,80%</td></tr>
+                <tr class="hover:bg-zinc-800/50 transition-colors"><td class="px-6 py-4 text-white font-medium">SOL/USD</td><td class="px-6 py-4 text-zinc-400">LONG</td><td class="px-6 py-4"><span class="px-2 py-1 rounded-full text-xs font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Win</span></td><td class="px-6 py-4 text-right font-mono text-emerald-400">+6,10%</td></tr>
+                <tr class="hover:bg-zinc-800/50 transition-colors"><td class="px-6 py-4 text-white font-medium">NVDA</td><td class="px-6 py-4 text-zinc-400">LONG</td><td class="px-6 py-4"><span class="px-2 py-1 rounded-full text-xs font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Win</span></td><td class="px-6 py-4 text-right font-mono text-emerald-400">+2,40%</td></tr>
+                <tr class="hover:bg-zinc-800/50 transition-colors"><td class="px-6 py-4 text-white font-medium">TSLA</td><td class="px-6 py-4 text-zinc-400">SHORT</td><td class="px-6 py-4"><span class="px-2 py-1 rounded-full text-xs font-bold bg-red-500/10 text-red-400 border border-red-500/20">Loss</span></td><td class="px-6 py-4 text-right font-mono text-red-400">-0,90%</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="glass-card p-6 md:p-8 rounded-3xl mb-16">
+      <h2 class="text-white font-bold flex items-center gap-2 mb-6"><i data-lucide="brain" class="w-5 h-5 text-emerald-400"></i> Das erwartet dich im echten Dashboard</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="p-4 bg-black/40 rounded-2xl border border-zinc-800 flex items-start gap-3">
+          <i data-lucide="check" class="w-4 h-4 text-emerald-500 mt-0.5 shrink-0"></i>
+          <p class="text-sm text-zinc-400"><strong class="text-white">Live-KI-Signale</strong> mit echten Kursdaten von CoinGecko, Binance und Yahoo Finance – inklusive Konfidenz und Datenquelle.</p>
+        </div>
+        <div class="p-4 bg-black/40 rounded-2xl border border-zinc-800 flex items-start gap-3">
+          <i data-lucide="check" class="w-4 h-4 text-emerald-500 mt-0.5 shrink-0"></i>
+          <p class="text-sm text-zinc-400"><strong class="text-white">Eigene Wallet-Verbindungen</strong> – bis zu 3 Anbieter (Binance, Coinbase, Kraken, Bybit, Interactive Brokers, OANDA) per API-Key.</p>
+        </div>
+        <div class="p-4 bg-black/40 rounded-2xl border border-zinc-800 flex items-start gap-3">
+          <i data-lucide="check" class="w-4 h-4 text-emerald-500 mt-0.5 shrink-0"></i>
+          <p class="text-sm text-zinc-400"><strong class="text-white">Auto-Invest &amp; Trade-Historie</strong> – Signale automatisch handeln lassen und jeden Gewinn verfolgen.</p>
+        </div>
+        <div class="p-4 bg-black/40 rounded-2xl border border-zinc-800 flex items-start gap-3">
+          <i data-lucide="check" class="w-4 h-4 text-emerald-500 mt-0.5 shrink-0"></i>
+          <p class="text-sm text-zinc-400"><strong class="text-white">KI-Live-Support</strong> – direkt im Dashboard, mit Zugriff auf deinen Plan und dein Guthaben.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center glass-card p-10 rounded-3xl">
+      <h2 class="text-3xl font-black text-white mb-4 tracking-tight">Bereit für das <span class="text-emerald-500">echte</span> Dashboard?</h2>
+      <p class="text-zinc-500 mb-8">Kostenloses Konto erstellen – dein Startguthaben von $1.000 ist vorbereitet.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="register.html" class="glow-button py-4 px-10 rounded-xl font-bold text-lg">Jetzt kostenlos registrieren</a>
+        <a href="pricing.html" class="btn-glass py-4 px-10 rounded-xl font-bold text-lg">Pläne ansehen</a>
+      </div>
+    </div>
+  </main>
+  <script src="nav.js"></script>
+  <script src="support-chat.js"></script>
+</body>
+</html>

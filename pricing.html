@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing - KI Signal Hub</title>
+  <link rel="stylesheet" href="tailwind.css">
+  <script src="icons.js"></script>
+  <script src="db.js"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-black text-zinc-400 font-sans min-h-screen">
+  <div class="animated-bg"></div>
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand"><span class="nav-logo">KI</span><span>SIGNAL<em>HUB</em></span></a>
+      <div class="nav-actions">
+        <span id="nav-auth"></span>
+      </div>
+    </div>
+    <div id="nav-dropdown" class="nav-dropdown" hidden>
+      <div class="nav-grid">
+        <a href="index.html" class="nav-link"><i data-lucide="home"></i><span>Dashboard</span></a>
+        <a href="profile.html" class="nav-link"><i data-lucide="user"></i><span>Profil</span></a>
+        <a href="wallet-settings.html" class="nav-link"><i data-lucide="credit-card"></i><span>Wallet</span></a>
+        <a href="pricing.html" class="nav-link active"><i data-lucide="tag"></i><span>Pricing</span></a>
+        <a href="faq.html" class="nav-link"><i data-lucide="help-circle"></i><span>FAQ</span></a>
+        <a href="contact.html" class="nav-link"><i data-lucide="mail"></i><span>Kontakt</span></a>
+        <a href="security.html" class="nav-link"><i data-lucide="shield-check"></i><span>Sicherheit</span></a>
+        <a href="settings.html" class="nav-link"><i data-lucide="settings"></i><span>Einstellungen</span></a>
+      </div>
+    </div>
+  </nav>
+  <main class="max-w-6xl mx-auto px-4 py-20 relative z-10">
+    <div class="text-center mb-16">
+      <h1 class="text-4xl md:text-6xl font-black text-white mb-6 tracking-tight">Wähle deinen <span class="text-emerald-500">Plan</span></h1>
+      <p class="text-zinc-500 max-w-2xl mx-auto">Erhalte Zugang zu unseren fortschrittlichsten KI-Modellen und maximiere deine Trading-Gewinne.</p>
+      <p id="current-plan-chip" class="inline-block mt-4 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-bold">Aktueller Plan: Basic</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+      <div class="glass-card p-8 rounded-3xl border border-zinc-800 flex flex-col">
+        <h3 class="text-white font-bold text-xl mb-2">Basic</h3>
+        <div class="flex items-baseline gap-1 mb-6">
+          <span class="text-4xl font-black text-white">0&nbsp;€</span>
+          <span class="text-zinc-500">/Monat</span>
+        </div>
+        <ul class="space-y-4 mb-8 flex-1">
+          <li class="flex items-center gap-3 text-sm"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> 3 Signale pro Tag</li>
+          <li class="flex items-center gap-3 text-sm"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Basis-Analyse</li>
+          <li class="flex items-center gap-3 text-sm text-zinc-600"><i data-lucide="x" class="w-4 h-4"></i> Auto-Invest</li>
+          <li class="flex items-center gap-3 text-sm text-zinc-600"><i data-lucide="x" class="w-4 h-4"></i> Priority Support</li>
+        </ul>
+        <a href="index.html" class="btn-glass py-3 rounded-xl font-bold block text-center">Kostenlos starten</a>
+      </div>
+
+      <div class="glass-card p-8 rounded-3xl border-2 border-emerald-500 relative flex flex-col transform scale-105 shadow-[0_0_30px_rgba(16,185,129,0.2)]">
+        <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-emerald-500 text-black text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest">Beliebteste Wahl</div>
+        <h3 class="text-white font-bold text-xl mb-2">Pro</h3>
+        <div class="flex items-baseline gap-1 mb-6">
+          <span class="text-4xl font-black text-white">99&nbsp;€</span>
+          <span class="text-zinc-500">/Monat</span>
+        </div>
+        <ul class="space-y-4 mb-8 flex-1">
+          <li class="flex items-center gap-3 text-sm"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Unbegrenzte Signale</li>
+          <li class="flex items-center gap-3 text-sm"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Advanced AI Analytics</li>
+          <li class="flex items-center gap-3 text-sm"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Auto-Invest Zugang</li>
+          <li class="flex items-center gap-3 text-sm"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> 24/7 Priority Support</li>
+        </ul>
+        <a href="profile.html" class="glow-button py-3 rounded-xl font-bold block text-center">Jetzt upgraden</a>
+      </div>
+
+      <div class="glass-card p-8 rounded-3xl border border-zinc-800 flex flex-col">
+        <h3 class="text-white font-bold text-xl mb-2">Elite</h3>
+        <div class="flex items-baseline gap-1 mb-6">
+          <span class="text-4xl font-black text-white">249&nbsp;€</span>
+          <span class="text-zinc-500">/Monat</span>
+        </div>
+        <ul class="space-y-4 mb-8 flex-1">
+          <li class="flex items-center gap-3 text-sm"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Alles aus Pro</li>
+          <li class="flex items-center gap-3 text-sm"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Custom AI Modelle</li>
+          <li class="flex items-center gap-3 text-sm"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Personal Portfolio Manager</li>
+          <li class="flex items-center gap-3 text-sm"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> API Enterprise Zugang</li>
+        </ul>
+        <a href="contact.html" class="btn-glass py-3 rounded-xl font-bold block text-center">Kontaktieren</a>
+      </div>
+    </div>
+
+    <div class="text-center mt-24 pt-12 border-t border-zinc-800">
+      <p class="text-zinc-300 text-xl font-bold mb-8">Du hast einen Pro- oder Elite-Aktivierungskey erhalten?</p>
+      <a href="profile.html" class="glow-button py-4 px-10 rounded-xl font-bold inline-block text-lg">Key auf der Profil-Seite einlösen &rarr;</a>
+    </div>
+  </main>
+  <script src="app.js"></script>
+  <script src="nav.js"></script>
+  <script src="support-chat.js"></script>
+  <script>if (typeof lucide !== 'undefined') lucide.createIcons();</script>
+</body>
+</html>

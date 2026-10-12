@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anmelden - KI Signal Hub</title>
+  <link rel="stylesheet" href="tailwind.css">
+  <script src="icons.js"></script>
+  <script src="db.js"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="auth-center bg-black text-zinc-400 font-sans min-h-screen">
+  <div class="animated-bg"></div>
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand"><span class="nav-logo">KI</span><span>SIGNAL<em>HUB</em></span></a>
+      <div class="nav-actions">
+        <span id="nav-auth"></span>
+      </div>
+    </div>
+    <div id="nav-dropdown" class="nav-dropdown" hidden>
+      <div class="nav-grid">
+        <a href="index.html" class="nav-link"><i data-lucide="home"></i><span>Dashboard</span></a>
+        <a href="profile.html" class="nav-link"><i data-lucide="user"></i><span>Profil</span></a>
+        <a href="wallet-settings.html" class="nav-link"><i data-lucide="credit-card"></i><span>Wallet</span></a>
+        <a href="pricing.html" class="nav-link"><i data-lucide="tag"></i><span>Pricing</span></a>
+        <a href="faq.html" class="nav-link"><i data-lucide="help-circle"></i><span>FAQ</span></a>
+        <a href="contact.html" class="nav-link"><i data-lucide="mail"></i><span>Kontakt</span></a>
+        <a href="security.html" class="nav-link"><i data-lucide="shield-check"></i><span>Sicherheit</span></a>
+        <a href="settings.html" class="nav-link"><i data-lucide="settings"></i><span>Einstellungen</span></a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="glass-card w-full max-w-md p-8 rounded-3xl relative z-10">
+    <div class="text-center mb-10">
+      <div class="w-12 h-12 bg-emerald-500 rounded-xl flex items-center justify-center text-black font-bold mx-auto mb-4 shadow-[0_0_20px_rgba(16,185,129,0.4)]">KI</div>
+      <h1 class="text-3xl font-black text-white tracking-tight">Willkommen <span class="text-emerald-500">Zurück</span></h1>
+      <p class="text-zinc-500 mt-2">Melden Sie sich an, um Ihre Signale zu sehen.</p>
+    </div>
+
+    <form id="login-form" class="space-y-6">
+      <div class="space-y-2">
+        <label class="text-xs uppercase font-bold text-zinc-500 block">Email-Adresse</label>
+        <input type="email" required class="w-full bg-black/40 border border-zinc-800 rounded-xl px-4 py-3 text-white outline-none focus:border-emerald-500/50 transition-colors" placeholder="name@beispiel.de">
+      </div>
+      <div class="space-y-2">
+        <label class="text-xs uppercase font-bold text-zinc-500 block">Passwort</label>
+        <input type="password" required class="w-full bg-black/40 border border-zinc-800 rounded-xl px-4 py-3 text-white outline-none focus:border-emerald-500/50 transition-colors" placeholder="••••••••">
+      </div>
+      <div class="flex justify-end">
+        <a href="mailto:support@signalhub.studio?subject=Passwort%20zur%C3%BCcksetzen%20%E2%80%93%20KI%20Signal%20Hub" class="text-xs text-emerald-400 hover:text-emerald-300 transition-colors">Passwort vergessen?</a>
+      </div>
+      <button type="submit" class="glow-button w-full py-4 rounded-xl font-bold">Einloggen</button>
+    </form>
+
+    <div class="mt-8 text-center">
+      <p class="text-sm text-zinc-500">Noch kein Konto? <a href="register.html" class="text-white font-bold hover:text-emerald-400 transition-colors">Jetzt registrieren</a></p>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script src="nav.js"></script>
+  <script src="support-chat.js"></script>
+  <script src="i18n.js"></script>
+  <script src="auth.js"></script>
+  <script>if (typeof lucide !== 'undefined') lucide.createIcons();</script>
+</body>
+</html>

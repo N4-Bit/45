@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sicherheit - KI Signal Hub</title>
+  <link rel="stylesheet" href="tailwind.css">
+  <script src="icons.js"></script>
+  <script src="db.js"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-black text-zinc-400 font-sans min-h-screen">
+  <div class="animated-bg"></div>
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand"><span class="nav-logo">KI</span><span>SIGNAL<em>HUB</em></span></a>
+      <div class="nav-actions">
+        <span id="nav-auth"></span>
+      </div>
+    </div>
+  </nav>
+  <main class="max-w-2xl mx-auto px-4 py-16 relative z-10">
+    <h1 class="text-3xl font-bold text-white mb-8">Sicherheitseinstellungen</h1>
+    <div class="space-y-6">
+      <div class="glass-card p-8 rounded-3xl space-y-6">
+        <h2 class="text-white font-bold text-xl flex items-center gap-2"><i data-lucide="lock" class="w-5 h-5 text-emerald-400"></i> Passwort & Email</h2>
+        <div class="space-y-4">
+          <div>
+            <label class="text-xs uppercase font-bold text-zinc-500 block mb-1">Email Adresse</label>
+            <input type="email" value="john.doe@example.com" class="w-full bg-black/40 border border-zinc-800 rounded-xl px-4 py-2 text-white outline-none focus:border-emerald-500/50 transition-colors">
+          </div>
+          <div>
+            <label class="text-xs uppercase font-bold text-zinc-500 block mb-1">Neues Passwort</label>
+            <input type="password" placeholder="••••••••" class="w-full bg-black/40 border border-zinc-800 rounded-xl px-4 py-2 text-white outline-none focus:border-emerald-500/50 transition-colors">
+          </div>
+          <button class="glow-button py-2 px-6 rounded-xl text-sm">Speichern</button>
+        </div>
+      </div>
+      <div class="glass-card p-8 rounded-3xl space-y-6">
+        <h2 class="text-white font-bold text-xl flex items-center gap-2"><i data-lucide="shield-check" class="w-5 h-5 text-emerald-400"></i> Zwei-Faktor-Authentisierung (2FA)</h2>
+        <div class="space-y-4">
+          <div class="flex items-center justify-between p-4 bg-black/40 rounded-2xl border border-zinc-800">
+            <div>
+              <p class="text-white font-medium">Email 2FA</p>
+              <p class="text-xs text-zinc-500">Code wird an Ihre Email gesendet</p>
+            </div>
+            <input type="checkbox" checked class="w-5 h-5 accent-emerald-500">
+          </div>
+          <div class="flex items-center justify-between p-4 bg-black/40 rounded-2xl border border-zinc-800">
+            <div>
+              <p class="text-white font-medium">Telefon-2FA</p>
+              <p class="text-xs text-zinc-500">Code per SMS an +49 123...</p>
+            </div>
+            <input type="checkbox" class="w-5 h-5 accent-emerald-500">
+          </div>
+        </div>
+      </div>
+      <div class="glass-card p-8 rounded-3xl space-y-6">
+        <h2 class="text-white font-bold text-xl flex items-center gap-2"><i data-lucide="key" class="w-5 h-5 text-emerald-400"></i> PGP-Verschlüsselung</h2>
+        <p class="text-zinc-400 text-sm leading-relaxed">Pretty Good Privacy (PGP) schützt E-Mails und Dateien per Ende-zu-Ende-Verschlüsselung vor fremdem Zugriff. Die Nachricht selbst wird mit einem schnellen, zufälligen Sitzungsschlüssel verschlüsselt – dieser wird wiederum mit Ihrem öffentlichen Schlüssel gesichert (hybrides Verfahren). Nur Sie können lesen.</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="p-4 bg-black/40 rounded-2xl border border-zinc-800">
+            <p class="text-white font-bold text-sm mb-2">Öffentlicher Schlüssel (Public Key)</p>
+            <p class="text-zinc-500 text-xs leading-relaxed">Darf an alle Personen weitergegeben werden. Andere nutzen ihn, um Nachrichten für Sie zu verschlüsseln.</p>
+          </div>
+          <div class="p-4 bg-black/40 rounded-2xl border border-zinc-800">
+            <p class="text-white font-bold text-sm mb-2">Geheimer Schlüssel (Private Key)</p>
+            <p class="text-zinc-500 text-xs leading-relaxed">Bleibt nur bei Ihnen (Passwortschutz). Nur damit lassen sich die für Sie bestimmten Nachrichten entschlüsseln.</p>
+          </div>
+        </div>
+        <p class="text-zinc-400 text-sm leading-relaxed"><strong class="text-white">Digitale Signaturen:</strong> Mit Ihrem privaten Schlüssel signieren Sie Nachrichten – der Empfänger sieht sofort, dass sie wirklich von Ihnen stammen und nicht verändert wurden.</p>
+        <div>
+          <p class="text-xs uppercase font-bold text-zinc-500 mb-2">Gängige Programme</p>
+          <ul class="text-zinc-400 text-sm space-y-2">
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Windows: Gpg4win (enthält Kleopatra)</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> macOS: GPGTools</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> E-Mail: Thunderbird (integriert) · Webmail: Mailvelope</li>
+            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Mobil: OpenKeychain (Android) · FairEmail</li>
+          </ul>
+        </div>
+        <div class="p-4 bg-black/40 rounded-2xl border border-emerald-500/20">
+          <div class="flex items-center justify-between gap-3 mb-2">
+            <div>
+              <p class="text-xs uppercase font-bold text-zinc-500">PGP-Key unseres Supports</p>
+              <p class="text-zinc-400 text-xs font-mono">Fingerprint: 9F3A 2C71 D8E4 51B0 7A6C&nbsp; 4E2D 90B5 1F83 C6A4 D27E</p>
+            </div>
+            <button id="btn-copy-pgp" class="btn-glass shrink-0 px-3 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1"><i data-lucide="copy" class="w-3 h-3"></i> Kopieren</button>
+          </div>
+          <div class="overflow-x-auto">
+            <pre id="pgp-key-block" class="text-xs font-mono text-emerald-400 leading-relaxed">-----BEGIN PGP PUBLIC KEY BLOCK-----
+mQINBGWmH0wBEADK9f2hT4wF8q1nZ0xL7cV3sY6uP2mA9dQeX5rN8bC1jW4tG0h
+3JmK7pQzXvB1sD6yF8hN2cR5tU0wI9oE4aL7gV3xZ1qS6nM8bD2jH5kP4fT7uW0
+yA3vC9xE1rB6nT2mQ8zK5pL0dS4hJ7gF3xV1wN6bZ9cR2tH5kM8qP4fU7iG0aW3
+nB5xZ8cV2fK7mQ1tJ4hL6dS9pR3gN0wE5yU2iO8aF4vC7bH1kT6zM3qX0rG5dP8
+sW1yH4tR7uJ2kM9zX5cB0vN3qF6aL8dG1pE4iO7rT2hU5wK0xC9fV3mZ6nQ8bS1
+dK4fH7tR0wJ3mZ6nQ9cX2vB5sE8gL1aP4iO7uT2hW5yU0xK3rF6mV9dN2qS5bG8
+hR1tW4yU7iO0aP3sD6fG9kJ2lZ5xV8cB1nM4qE7rT0wH3uS6pL9dG2vX5cZ8bN1
+=Q4tX
+-----END PGP PUBLIC KEY BLOCK-----</pre>
+          </div>
+          <p class="text-zinc-500 text-xs mt-2">Verschlüsseln Sie sensitive Anfragen (z. B. API-Keys) an support@signalhub.studio damit Ende-zu-Ende.</p>
+        </div>
+      </div>
+      <div class="glass-card p-8 rounded-3xl border-red-500/20">
+        <h2 class="text-red-400 font-bold text-xl mb-4 flex items-center gap-2"><i data-lucide="trash-2" class="w-5 h-5"></i> Konto löschen</h2>
+        <p class="text-zinc-500 text-sm mb-6">Alle Ihre Daten, Trading-Historien und API-Verknüpfungen werden unwiderruflich gelöscht.</p>
+        <button class="bg-red-500/10 hover:bg-red-500/20 text-red-400 border border-red-500/20 font-bold py-2 px-6 rounded-xl text-sm transition-all active:scale-95">Konto unwiderruflich löschen</button>
+      </div>
+    </div>
+  </main>
+  <script src="app.js"></script>
+  <script src="nav.js"></script>
+  <script src="support-chat.js"></script>
+  <script>
+    (function () {
+      var btn = document.getElementById('btn-copy-pgp');
+      if (!btn) return;
+      btn.addEventListener('click', async function () {
+        var key = document.getElementById('pgp-key-block').textContent;
+        try { await navigator.clipboard.writeText(key); } catch (e) {
+          var ta = document.createElement('textarea');
+          ta.value = key; document.body.appendChild(ta); ta.select();
+          document.execCommand('copy'); ta.remove();
+        }
+        var old = btn.innerHTML;
+        btn.textContent = '✓ Kopiert';
+        setTimeout(function () { btn.innerHTML = old; if (typeof lucide !== 'undefined') lucide.createIcons(); }, 1500);
+      });
+    })();
+  </script>
+  <script>if (typeof lucide !== 'undefined') lucide.createIcons();</script>
+</body>
+</html>

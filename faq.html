@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ - KI Signal Hub</title>
+  <link rel="stylesheet" href="tailwind.css">
+  <script src="icons.js"></script>
+  <script src="db.js"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-black text-zinc-400 font-sans min-h-screen">
+  <div class="animated-bg"></div>
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand"><span class="nav-logo">KI</span><span>SIGNAL<em>HUB</em></span></a>
+      <div class="nav-actions">
+        <span id="nav-auth"></span>
+      </div>
+    </div>
+    <div id="nav-dropdown" class="nav-dropdown" hidden>
+      <div class="nav-grid">
+        <a href="index.html" class="nav-link"><i data-lucide="home"></i><span>Dashboard</span></a>
+        <a href="profile.html" class="nav-link"><i data-lucide="user"></i><span>Profil</span></a>
+        <a href="wallet-settings.html" class="nav-link"><i data-lucide="credit-card"></i><span>Wallet</span></a>
+        <a href="pricing.html" class="nav-link"><i data-lucide="tag"></i><span>Pricing</span></a>
+        <a href="faq.html" class="nav-link active"><i data-lucide="help-circle"></i><span>FAQ</span></a>
+        <a href="contact.html" class="nav-link"><i data-lucide="mail"></i><span>Kontakt</span></a>
+        <a href="security.html" class="nav-link"><i data-lucide="shield-check"></i><span>Sicherheit</span></a>
+        <a href="settings.html" class="nav-link"><i data-lucide="settings"></i><span>Einstellungen</span></a>
+      </div>
+    </div>
+  </nav>
+  <main class="max-w-3xl mx-auto px-4 py-20 relative z-10">
+    <div class="text-center mb-16">
+      <h1 class="text-4xl md:text-6xl font-black text-white mb-6 tracking-tight">Häufige <span class="text-emerald-500">Fragen</span></h1>
+      <p class="text-zinc-500">Alles, was du über den KI Signal Hub wissen musst.</p>
+    </div>
+
+    <div class="space-y-4">
+      <div class="glass-card p-6 rounded-3xl">
+        <h3 class="text-white font-bold text-lg mb-2 flex items-center gap-2">
+          <i data-lucide="help-circle" class="w-5 h-5 text-emerald-400"></i> Wie genau funktionieren die Signale?
+        </h3>
+        <p class="text-zinc-400 leading-relaxed">Unsere KI analysiert Millionen von Datenpunkten in Echtzeit, einschließlich Orderflow, Chartmustern und News-Sentiment, um hochwahrscheinliche Marktbewegungen vorherzusagen.</p>
+      </div>
+
+      <div class="glass-card p-6 rounded-3xl">
+        <h3 class="text-white font-bold text-lg mb-2 flex items-center gap-2">
+          <i data-lucide="help-circle" class="w-5 h-5 text-emerald-400"></i> Was ist Auto-Invest?
+        </h3>
+        <p class="text-zinc-400 leading-relaxed">Auto-Invest ist ein Premium-Feature, das Signale automatisch in deinem verknüpften Trading-Account ausführt, ohne dass du manuell eingreifen musst.</p>
+      </div>
+
+      <div class="glass-card p-6 rounded-3xl">
+        <h3 class="text-white font-bold text-lg mb-2 flex items-center gap-2">
+          <i data-lucide="help-circle" class="w-5 h-5 text-emerald-400"> </i> Wie sicher sind meine API-Keys?
+        </h3>
+        <p class="text-zinc-400 leading-relaxed">Deine API-Keys werden AES-256 verschlüsselt gespeichert. Wir empfehlen, nur "Read" und "Trade" Berechtigungen zu vergeben, niemals "Withdraw".</p>
+      </div>
+
+      <div class="glass-card p-6 rounded-3xl">
+        <h3 class="text-white font-bold text-lg mb-2 flex items-center gap-2">
+          <i data-lucide="help-circle" class="w-5 h-5 text-emerald-400"></i> Welche Märkte werden abgedeckt?
+        </h3>
+        <p class="text-zinc-400 leading-relaxed">Wir decken die wichtigsten Kryptowährungen (BTC, ETH, SOL), Forex-Paare und ausgewählte Tech-Aktien ab.</p>
+      </div>
+    </div>
+
+    <div class="mt-12 text-center">
+      <p class="text-zinc-500 mb-6">Hast du weitere Fragen?</p>
+      <a href="contact.html" class="glow-button py-3 px-8 rounded-xl font-bold inline-block">Kontaktiere uns</a>
+    </div>
+  </main>
+  <script src="app.js"></script>
+  <script src="nav.js"></script>
+  <script src="support-chat.js"></script>
+  <script src="i18n.js"></script>
+  <script>if (typeof lucide !== 'undefined') lucide.createIcons();</script>
+</body>
+</html>

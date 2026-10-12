@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kontakt - KI Signal Hub</title>
+  <link rel="stylesheet" href="tailwind.css">
+  <script src="icons.js"></script>
+  <script src="db.js"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-black text-zinc-400 font-sans min-h-screen">
+  <div class="animated-bg"></div>
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand"><span class="nav-logo">KI</span><span>SIGNAL<em>HUB</em></span></a>
+      <div class="nav-actions">
+        <span id="nav-auth"></span>
+      </div>
+    </div>
+    <div id="nav-dropdown" class="nav-dropdown" hidden>
+      <div class="nav-grid">
+        <a href="index.html" class="nav-link"><i data-lucide="home"></i><span>Dashboard</span></a>
+        <a href="profile.html" class="nav-link"><i data-lucide="user"></i><span>Profil</span></a>
+        <a href="wallet-settings.html" class="nav-link"><i data-lucide="credit-card"></i><span>Wallet</span></a>
+        <a href="pricing.html" class="nav-link"><i data-lucide="tag"></i><span>Pricing</span></a>
+        <a href="faq.html" class="nav-link"><i data-lucide="help-circle"></i><span>FAQ</span></a>
+        <a href="contact.html" class="nav-link active"><i data-lucide="mail"></i><span>Kontakt</span></a>
+        <a href="security.html" class="nav-link"><i data-lucide="shield-check"></i><span>Sicherheit</span></a>
+        <a href="settings.html" class="nav-link"><i data-lucide="settings"></i><span>Einstellungen</span></a>
+      </div>
+    </div>
+  </nav>
+  <main class="max-w-4xl mx-auto px-4 py-20 relative z-10">
+    <div class="text-center mb-16">
+      <h1 class="text-4xl md:text-6xl font-black text-white mb-6 tracking-tight">Kontaktieren Sie <span class="text-emerald-500">Uns</span></h1>
+      <p class="text-zinc-500">Wir sind hier, um Ihnen bei Ihren Trading-Zielen zu helfen.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="md:col-span-1 space-y-6">
+        <div class="glass-card p-6 rounded-3xl">
+          <h3 class="text-white font-bold mb-4 flex items-center gap-2">
+            <i data-lucide="mail" class="w-5 h-5 text-emerald-400"></i> Email
+          </h3>
+          <p class="text-zinc-400">support@signalhub.studio</p>
+        </div>
+        <div class="glass-card p-6 rounded-3xl">
+          <h3 class="text-white font-bold mb-4 flex items-center gap-2">
+            <i data-lucide="message-circle" class="w-5 h-5 text-emerald-400"></i> Live Chat
+          </h3>
+          <p class="text-zinc-400">Mo-Fr, 9:00 - 18:00 Uhr</p>
+        </div>
+        <div class="glass-card p-6 rounded-3xl">
+          <h3 class="text-white font-bold mb-4 flex items-center gap-2">
+            <i data-lucide="globe" class="w-5 h-5 text-emerald-400"></i> Social
+          </h3>
+          <div class="flex gap-4">
+            <a href="https://www.instagram.com/signalhub.studio/" target="_blank" rel="noopener" aria-label="Instagram" class="text-zinc-400 hover:text-white transition-colors"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+            <a href="https://t.me/KISignalHub" target="_blank" rel="noopener" aria-label="Telegram" class="text-zinc-400 hover:text-white transition-colors"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></a>
+            <a href="https://discord.com/viptoolz.gg" target="_blank" rel="noopener" aria-label="Discord" class="text-zinc-400 hover:text-white transition-colors"><svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M20.317 4.37a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.865-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.058a.082.082 0 0 0 .031.056 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.291.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.099.246.198.373.292a.077.077 0 0 1-.006.127 12.3 12.3 0 0 1-1.873.892.077.077 0 0 0-.041.107c.361.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.331c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="md:col-span-2">
+        <div class="glass-card p-8 rounded-3xl">
+          <form id="contact-form" class="space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="space-y-2">
+                <label class="text-xs uppercase font-bold text-zinc-500 block">Name</label>
+                <input type="text" id="contact-name" required class="w-full bg-black/40 border border-zinc-800 rounded-xl px-4 py-3 text-white outline-none focus:border-emerald-500/50 transition-colors">
+              </div>
+              <div class="space-y-2">
+                <label class="text-xs uppercase font-bold text-zinc-500 block">Email</label>
+                <input type="email" id="contact-email" required class="w-full bg-black/40 border border-zinc-800 rounded-xl px-4 py-3 text-white outline-none focus:border-emerald-500/50 transition-colors">
+              </div>
+            </div>
+            <div class="space-y-2">
+              <label class="text-xs uppercase font-bold text-zinc-500 block">Betreff</label>
+              <input type="text" id="contact-subject" required class="w-full bg-black/40 border border-zinc-800 rounded-xl px-4 py-3 text-white outline-none focus:border-emerald-500/50 transition-colors">
+            </div>
+            <div class="space-y-2">
+              <label class="text-xs uppercase font-bold text-zinc-500 block">Nachricht</label>
+              <textarea id="contact-message" required rows="5" class="w-full bg-black/40 border border-zinc-800 rounded-xl px-4 py-3 text-white outline-none focus:border-emerald-500/50 transition-colors"></textarea>
+            </div>
+            <button type="submit" class="glow-button w-full py-4 rounded-xl font-bold">Nachricht senden</button>
+            <p id="contact-status" class="hidden text-sm font-bold"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="nav.js"></script>
+  <script src="support-chat.js"></script>
+  <script src="i18n.js"></script>
+  <script>if (typeof lucide !== 'undefined') lucide.createIcons();</script>
+  <script>
+    (function () {
+      var form = document.getElementById('contact-form');
+      if (!form) return;
+      var status = document.getElementById('contact-status');
+      var TO = 'support@signalhub.studio';
+      function show(text, cls) {
+        if (!status) return;
+        status.textContent = text;
+        status.className = 'text-sm font-bold ' + (cls || 'text-emerald-400');
+      }
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        var name = document.getElementById('contact-name').value.trim();
+        var email = document.getElementById('contact-email').value.trim();
+        var subject = document.getElementById('contact-subject').value.trim() || 'Kontaktanfrage';
+        var message = document.getElementById('contact-message').value.trim();
+        var btn = form.querySelector('button[type="submit"]');
+        btn.disabled = true;
+        show('Nachricht wird gesendet …', 'text-zinc-400');
+        try {
+          var res = await fetch('https://formsubmit.co/ajax/' + TO, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify({ name: name, email: email, _replyto: email, _subject: 'KI Signal Hub – ' + subject, message: message })
+          });
+          var data = await res.json();
+          if (!data.success) throw new Error('Versand fehlgeschlagen');
+          show('✓ Nachricht gesendet – wir melden uns schnellstmöglich!', 'text-emerald-400');
+          form.reset();
+        } catch (err) {
+          var body = 'Name: ' + name + '\nE-Mail: ' + email + '\n\n' + message;
+          var a = document.createElement('a');
+          a.href = 'mailto:' + TO + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+          document.body.appendChild(a);
+          a.click();
+          a.remove();
+          show('E-Mail-Programm geöffnet – deine Nachricht geht an ' + TO + '.', 'text-emerald-400');
+        }
+        btn.disabled = false;
+      });
+    })();
+  </script>
+</body>
+</html>

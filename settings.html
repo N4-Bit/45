@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Einstellungen - KI Signal Hub</title>
+  <link rel="stylesheet" href="tailwind.css">
+  <script src="icons.js"></script>
+  <script src="db.js"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-black text-zinc-400 font-sans min-h-screen">
+  <div class="animated-bg"></div>
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand"><span class="nav-logo">KI</span><span>SIGNAL<em>HUB</em></span></a>
+      <div class="nav-actions">
+        <span id="nav-auth"></span>
+      </div>
+    </div>
+  </nav>
+  <main class="max-w-2xl mx-auto px-4 py-16 relative z-10">
+    <h1 class="text-3xl font-bold text-white mb-8">Einstellungen</h1>
+    <div class="space-y-6">
+      <div class="glass-card p-8 rounded-3xl space-y-6">
+        <h2 class="text-white font-bold text-xl flex items-center gap-2"><i data-lucide="bell" class="w-5 h-5 text-emerald-400"></i> Benachrichtigungen</h2>
+        <div class="flex items-center justify-between p-4 bg-black/40 rounded-2xl border border-zinc-800">
+          <p class="text-white font-medium">Push-Benachrichtigungen</p>
+          <input type="checkbox" checked class="w-5 h-5 accent-emerald-500">
+        </div>
+      </div>
+      <div class="glass-card p-8 rounded-3xl space-y-6">
+        <h2 class="text-white font-bold text-xl flex items-center gap-2"><i data-lucide="palette" class="w-5 h-5 text-emerald-400"></i> Erscheinungsbild</h2>
+        <div class="flex items-center justify-between p-4 bg-black/40 rounded-2xl border border-zinc-800">
+          <p class="text-white font-medium">Dark Mode</p>
+          <span class="px-2 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-[10px] font-bold border border-emerald-500/20">AKTIV</span>
+        </div>
+      </div>
+      <div class="glass-card p-8 rounded-3xl space-y-6">
+        <h2 class="text-white font-bold text-xl flex items-center gap-2"><i data-lucide="globe" class="w-5 h-5 text-emerald-400"></i> Sprache</h2>
+        <div class="flex items-center justify-between gap-4 p-4 bg-black/40 rounded-2xl border border-zinc-800">
+          <div>
+            <p class="text-white font-medium">Website-Sprache</p>
+            <p class="text-xs text-zinc-500">14 Sprachen – gilt sofort auf allen Seiten, auch im Gast-Dashboard.</p>
+          </div>
+          <select class="lang-select bg-black/40 border border-zinc-800 rounded-xl px-4 py-2 text-white outline-none" aria-label="Sprache wählen"></select>
+        </div>
+      </div>
+      <div id="security-shortcut" class="glass-card p-8 rounded-3xl space-y-6" data-auth-only>
+        <h2 class="text-white font-bold text-xl flex items-center gap-2"><i data-lucide="shield-check" class="w-5 h-5 text-emerald-400"></i> Sicherheit</h2>
+        <p class="text-zinc-500 text-sm">Verwalte Passwort, Email und Zwei-Faktor-Authentisierung an einem Ort.</p>
+        <a href="security.html" class="glow-button py-3 px-6 rounded-xl font-bold inline-block">Sicherheitseinstellungen öffnen →</a>
+      </div>
+    </div>
+  </main>
+  <script src="app.js"></script>
+  <script src="nav.js"></script>
+  <script src="support-chat.js"></script>
+  <script>if (typeof lucide !== 'undefined') lucide.createIcons();</script>
+</body>
+</html>
